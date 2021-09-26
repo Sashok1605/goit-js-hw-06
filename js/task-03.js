@@ -14,22 +14,19 @@ const images = [
 ];
 
 const galleryMakeUp = document.querySelector('.gallery');
-images.forEach(item => {
-  let imageMakeUp = `<li><img src=${item.url} alt=${item.alt}>`;
-  galleryMakeUp.insertAdjacentHTML('beforeend', imageMakeUp);
+const imageMakeUp = images.map(item => {
+  const imageMake = `<li><img src=${item.url} alt='${item.alt}'>`;
+  return imageMake;
 });
 
-const makeImgClass = document.querySelectorAll('.gallery > li').forEach(item => {
-  item.classList.add('pictures');
-})
+galleryMakeUp.insertAdjacentHTML('beforeend', imageMakeUp);
 
+galleryMakeUp.style.display = "grid";
+galleryMakeUp.style.gridTemplateColumns = '40% auto 40%';
 const makeStyleImg = document.querySelectorAll('img').forEach(item => {
   item.style.display = 'block';
   item.style.width = '80%';
   item.style.height = '80%';
-})
+});
 
-const makeInLineStelyUl = document.querySelector('ul');
-makeInLineStelyUl.style.display = "grid";
-makeInLineStelyUl.style.gridTemplateColumns = '40% auto 40%';
-console.log(galleryMakeUp);
+
