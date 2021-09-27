@@ -14,12 +14,13 @@ const images = [
 ];
 
 const galleryMakeUp = document.querySelector('.gallery');
-const imageMakeUp = images.map(item => {
-  const imageMake = `<li><img src=${item.url} alt='${item.alt}'>`;
-  return imageMake;
+
+let makeString = '';
+images.forEach(({ url, alt }) => {
+  makeString += `<li><img src=${url} alt=${alt}>`;
 });
 
-galleryMakeUp.insertAdjacentHTML('beforeend', imageMakeUp);
+galleryMakeUp.insertAdjacentHTML('beforeend', makeString);
 
 galleryMakeUp.style.display = "grid";
 galleryMakeUp.style.gridTemplateColumns = '40% auto 40%';
